@@ -30,15 +30,19 @@ const ProductController = {
         const { product_id } = req.params;
 
         try {
-        const updateProduct = await Product.findByIdAndUpdate(product_id, bodyData, {new: true});
-        return res.status(200).json(updateProduct);    
+        const updatedProduct = await Product.findByIdAndUpdate(product_id, bodyData, {new: true});
+        return res.status(200).json(updatedProduct);    
         } catch (err) {
             return res.status(400).json(err);
         }
     },
 
     async deleteProduct(req, res) {
+        const { product_id } = req.params;
+
         try {
+            const deletedProduct = await Product.findByIdAndDelete(product_id);
+            return res.status(200).json(deletedProduct);
         } catch (err) {
             return res.status(400).json(err);
         }
