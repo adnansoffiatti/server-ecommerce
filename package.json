@@ -1,0 +1,31 @@
+{
+  "name": "server-ecommerce",
+  "version": "1.0.0",
+  "description": "Ecommerce com NodeJs e MongoDB: Criando uma API Rest",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adnansoffiatti/server-ecommerce.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adnansoffiatti/server-ecommerce/issues"
+  },
+  "homepage": "https://github.com/adnansoffiatti/server-ecommerce#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.9.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
