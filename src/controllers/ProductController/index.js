@@ -1,15 +1,53 @@
+const Product = require("../../models/Product");
+
 const ProductController = {
-    async createProduct(req, res) {},
+    async createProduct(req, res) {
+        const bodyData = req.body;
+        const { user_id } = req.params;
 
-    async getUserProducts(req, res) {},
+        try {
+            const data = { username: user_id, ...bodyData };
+            const newProduct = await Product.create(data);
+            return res.status(200).json(newProduct);
+        } catch (err) {
+            return res.status(400).json(err);
+        }
+    },
 
-    async updateProduct(req, res) {},
+    async getUserProducts(req, res) {
+        try {
+        } catch (err) {
+            return res.status(400).json(err);
+        }
+    },
 
-    async deleteProduct(req, res) {},
+    async updateProduct(req, res) {
+        try {
+        } catch (err) {
+            return res.status(400).json(err);
+        }
+    },
 
-    async getProducts(req, res) {},
+    async deleteProduct(req, res) {
+        try {
+        } catch (err) {
+            return res.status(400).json(err);
+        }
+    },
 
-    async getProductById(req, res) {},
+    async getProducts(req, res) {
+        try {
+        } catch (err) {
+            return res.status(400).json(err);
+        }
+    },
+
+    async getProductById(req, res) {
+        try {
+        } catch (err) {
+            return res.status(400).json(err);
+        }
+    },
 };
 
 module.exports = ProductController;
