@@ -1,4 +1,5 @@
 const { Router } = require('express');
+const UserController = require('../controllers/UserController');
 const routes = Router();
 
 routes.get("/", (req, res) => {
@@ -6,7 +7,7 @@ routes.get("/", (req, res) => {
 });
 
 // rota para criar usuário
-routes.post('/users');
+routes.post('/users', UserController.createUser);
 
 // rota para listar usuários
 routes.get('/users');
