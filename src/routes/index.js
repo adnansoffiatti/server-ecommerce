@@ -13,7 +13,7 @@ routes.post('/users', UserController.createUser);
 routes.get('/users', UserController.getUsers);
 
 // rota para listar usuário específico
-routes.get('/users/:user_id');
+routes.get('/users/:user_id', UserController.getUserById);
 
 // rota para fazer login
 routes.post('/login');
