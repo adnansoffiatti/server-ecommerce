@@ -38,7 +38,7 @@ const ProductController = {
     },
 
     async deleteProduct(req, res) {
-        const { product_id } = req.params;
+        const { product_id, user_id } = req.params;
 
         try {
             const deletedProduct = await Product.findByIdAndDelete(product_id);
@@ -50,13 +50,19 @@ const ProductController = {
 
     async getProducts(req, res) {
         try {
+            const products = await Product.find();
+            return res.status(200).json(products);
         } catch (err) {
             return res.status(400).json(err);
         }
     },
 
     async getProductById(req, res) {
+        const { product_id } = req.params;
+    
         try {
+            const product = await Product.findById(product_id);
+            return res.status(200).json(product);
         } catch (err) {
             return res.status(400).json(err);
         }

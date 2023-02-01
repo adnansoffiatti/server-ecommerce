@@ -2,7 +2,6 @@ const { Router } = require('express');
 
 const UserController = require('../controllers/UserController');
 const LoginController = require('../controllers/Login');
-const ProfileController = require('../controllers/ProductController');
 const ProductController = require('../controllers/ProductController');
 
 const routes = Router();
@@ -27,13 +26,13 @@ routes.post('/login', LoginController.createSession);
 routes.post('/products/:user_id', ProductController.createProduct);
 
 // rota para listar os produtos de um usuário
-routes.get('/products/:user_id', ProductController.getUserProducts);
+routes.get('/:user_id/products', ProductController.getUserProducts);
 
 // rota para atualizar o produto
 routes.patch('/products/:user_id/:product_id', ProductController.updateProduct);
 
 // rota para deletar produtos
-routes.delete('/products/:user_id/product_id', ProductController.deleteProduct);
+routes.delete('/products/:user_id/:product_id', ProductController.deleteProduct);
 
 // rota para listar todos os produtos
 routes.get('/products', ProductController.getProducts);
