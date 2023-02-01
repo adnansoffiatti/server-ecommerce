@@ -1,9 +1,11 @@
 const { Router } = require('express');
 const UserController = require('../controllers/UserController');
+const LoginController = require('../controllers/Login');
+
 const routes = Router();
 
 routes.get("/", (req, res) => {
-    res.send("Olá mundinho lindo!");
+    res.send("Olá mundo!");
 });
 
 // rota para criar usuário
@@ -16,7 +18,7 @@ routes.get('/users', UserController.getUsers);
 routes.get('/users/:user_id', UserController.getUserById);
 
 // rota para fazer login
-routes.post('/login');
+routes.post('/login', LoginController.createSession);
 
 // rota para criar produto
 routes.post('/products/:user_id');
