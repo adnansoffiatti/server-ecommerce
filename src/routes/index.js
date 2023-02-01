@@ -10,7 +10,7 @@ routes.get("/", (req, res) => {
 routes.post('/users', UserController.createUser);
 
 // rota para listar usuários
-routes.get('/users');
+routes.get('/users', UserController.getUsers);
 
 // rota para listar usuário específico
 routes.get('/users/:user_id');

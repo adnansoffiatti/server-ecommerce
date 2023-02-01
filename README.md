@@ -34,3 +34,5 @@ npm install
 
 ## Executar API
 npm run dev
+
+### Usar Insomnia para testar rotas
