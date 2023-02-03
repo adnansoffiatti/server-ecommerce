@@ -5,6 +5,8 @@ const LoginController = require('../controllers/Login');
 const ProductController = require('../controllers/ProductController');
 const CartController = require('../controllers/CartController');
 
+const { authenticate } = require('../middlewares');
+
 const routes = Router();
 
 routes.get("/", (req, res) => {
@@ -24,16 +26,16 @@ routes.get('/users/:user_id', UserController.getUserById);
 routes.post('/login', LoginController.createSession);
 
 // rota para criar produto
-routes.post('/products/:user_id', ProductController.createProduct);
+routes.post('/products/:user_id', authenticate, ProductController.createProduct);
 
 // rota para listar os produtos de um usuário
 routes.get('/:user_id/products', ProductController.getUserProducts);
 
 // rota para atualizar o produto
-routes.patch('/products/:user_id/:product_id', ProductController.updateProduct);
+routes.patch('/products/:user_id/:product_id', authenticate, ProductController.updateProduct);
 
 // rota para deletar produtos
-routes.delete('/products/:user_id/:product_id', ProductController.deleteProduct);
+routes.delete('/products/:user_id/:product_id', authenticate, ProductController.deleteProduct);
 
 // rota para listar todos os produtos
 routes.get('/products', ProductController.getProducts);
@@ -42,12 +44,12 @@ routes.get('/products', ProductController.getProducts);
 routes.get('/products/:product_id', ProductController.getProductById);
 
 // rota para listar carrinho
-routes.post('/carts/:user_id', CartController.createCart);
+routes.post('/carts/:user_id', authenticate, CartController.createCart);
 
 // todos os carts de um usuário
-routes.get('/carts/:user_id', CartController.getUserCarts);
+routes.get('/carts/:user_id', authenticate, CartController.getUserCarts);
 
 // rota para listar carrinho específico
-routes.get('/carts/:user_id/:card_id', CartController.getCart);
+routes.get('/carts/:user_id/:card_id', authenticate, CartController.getCart);
 
 module.exports = routes;
