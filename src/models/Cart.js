@@ -8,7 +8,7 @@ const Schema = new mongoose.Schema({
         },
     ],
     username: {
-        type: mongose.Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         reg: 'User',
     },
     address: {
